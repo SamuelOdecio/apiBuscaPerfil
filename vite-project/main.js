@@ -1,31 +1,28 @@
-import './style.css'
 import '@picocss/pico'
 
 
-const formConsultarConta = document.querySelector('#consultarCep')
-const inputConta = formConsultarCep.cep
+const formConsultarPerfil = document.querySelector('#consultarPerfil')
+const inputPerfil = formConsultarPerfil.perfil
 const divDados = document.querySelector('#dados')
-const btnConsultarConta = document.querySelector('#btnConsultarCep')
+const btnConsultarPerfil = document.querySelector('#btnBuscar')
 
-formConsultarCep.addEventListener('submit', (event) => {
+formConsultarPerfil.addEventListener('submit', (event) => {
   event.preventDefault() //anula o comportamento padrao de envio do form
   ativaLoader(true)
-  consultarConta(inputCep.value)
+  consultarPerfil(inputPerfil.value)
 
 })
 
 
-async function consultarCep(cep) {
-  let response = await fetch(`https://api.github.com/users/${conta}`)
-  let dadosConta = await response.json()
+async function consultarPerfil(perfil) {
+  let response = await fetch(`https://api.github.com/users/${perfil}`)
+  let dadosPerfil = await response.json()
   
   divDados.innerHTML = `
-  
-    <p>Endereço: ${dadosCep.logradouro}</p>
-    <p>Cidade: ${dadosCep.localidade}</p>
-    <p>Estado: ${dadosCep.uf}</p>
-    <p>CEP: ${dadosCep.cep}</p>
 
+    <p>Name: ${dadosPerfil.name}</p>
+    <img src="${dadosPerfil.avatar_url}">
+    <a href="${dadosPerfil.html_url}"> Perfil no GitHub</a>
 
   `
   ativaLoader(false)
@@ -33,13 +30,13 @@ async function consultarCep(cep) {
 
 function ativaLoader(ativo){
   if(ativo){
-    btnConsultarCep.setAttribute('aria-busy', 'true')
-    btnConsultarCep.textContent = 'Consultando CEP...'
+    btnBuscar.setAttribute('aria-busy', 'true')
+    btnBuscar.textContent = 'Consultando Perfil...'
 
   }else{
-    btnConsultarCep.removeAttribute('aria-busy')
-    btnConsultarCep.textContent = 'Consultar'
+    btnBuscar.removeAttribute('aria-busy')
+    btnBuscar.textContent = 'Consultar'
   }
 }
 
-consultarCep()
+consultarPerfil()
