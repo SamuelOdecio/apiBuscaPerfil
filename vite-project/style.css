@@ -96,12 +96,50 @@ button:focus-visible {
   }
 }
 
-h1{
-  color: #6116ee;
+
+#dados{
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: rgb(132, 0, 255);
+  padding: 15px;
 }
 
-.dados{
-  background-color: #6116ee;
-  border-radius: 10px;
+#dados img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
 }
 
+#dados p {
+color: white;
+font-size: 25px;
+font-weight: 700;
+padding-top:15px ;
+
+
+}
+#dados a{
+  color: white;
+  text-decoration: underline;
+  
+  
+}
+
+#btnBuscar {
+  background-color: rgb(132, 0, 255);
+}
+
+header h1 {
+  margin-top: 15px;
+  color:rgb(132, 0, 255);
+}
+.fa {
+  margin-right: 15px;;
+}
+
+.containerTitle{
+  display: flex;
+}

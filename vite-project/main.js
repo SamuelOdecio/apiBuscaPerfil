@@ -19,11 +19,9 @@ async function consultarPerfil(perfil) {
   let dadosPerfil = await response.json()
   
   divDados.innerHTML = `
-
-    <p>Name: ${dadosPerfil.name}</p>
+    <p>${dadosPerfil.name}</p>
     <img src="${dadosPerfil.avatar_url}">
-    <a href="${dadosPerfil.html_url}"> Perfil no GitHub</a>
-
+    <a href="${dadosPerfil.html_url}">Perfil no GitHub</a>
   `
   ativaLoader(false)
 }
